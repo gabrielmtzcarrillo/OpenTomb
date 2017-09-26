@@ -441,7 +441,7 @@ void Engine_InitSDLVideo()
 
         lglGetIntegerv = (PFNGLGETIINTEGERVPROC)SDL_GL_GetProcAddress("glGetIntegerv");
         lglGetIntegerv(GL_MAX_SAMPLES, &maxSamples);
-        maxSamples = (maxSamples > 16)?(16):(maxSamples);                       // Fix for faulty GL max. sample number.
+        maxSamples = (maxSamples > 16) ? (16) : (maxSamples);                   // Fix for faulty GL max. sample number.
 
         if(renderer.settings.antialias_samples > maxSamples)
         {
@@ -933,7 +933,7 @@ void Engine_MainLoop()
             if(engine_video.codec.audio.buff && (engine_video.codec.audio.buff_offset >= Audio_StreamExternalBufferOffset()))
             {
                 Audio_StreamExternalUpdateBuffer(engine_video.codec.audio.buff, engine_video.codec.audio.buff_size,
-                    engine_video.codec.audio.bits_per_coded_sample, engine_video.codec.audio.channels, engine_video.codec.audio.sample_rate);
+                    engine_video.codec.audio.bits_per_sample, engine_video.codec.audio.channels, engine_video.codec.audio.sample_rate);
             }
             if(Audio_StreamExternalBufferIsNeedUpdate())
             {
